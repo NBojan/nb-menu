@@ -6,8 +6,10 @@ import MenuItem from "./MenuItem";
 const Menu = () => {
     const [mainData] = useState(data);
     const [usedData, setUsedData] = useState(mainData);
+    const [activeCat, setActiveCat] = useState("all");
 
     const handleFilter = (category) => {
+        setActiveCat(category);
         if(category === "all"){
             setUsedData(mainData);
             return;
@@ -24,7 +26,7 @@ const Menu = () => {
             </div>
 
             <div className="btn-container d-flex justify-center align-center mb-36">
-                <MenuButtons data={mainData} handleFilter={handleFilter}/>
+                <MenuButtons data={mainData} handleFilter={handleFilter} activeCat={activeCat} />
             </div>
 
             <div className="item-container d-flex space-between flex-wrap">
